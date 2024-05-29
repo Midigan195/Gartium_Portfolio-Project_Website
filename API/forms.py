@@ -59,6 +59,14 @@ class UploadForm(FlaskForm):
     description = TextAreaField('Description', validators=[Length(max=255)])
 
 class SignUpForm(FlaskForm):
+    """
+    Form for user sign-up. It includes fields for username, email, and password.
+
+    Fields:
+        username (StringField): Username field, must be between 1 and 30 characters long.
+        email (StringField): Email field, must be a valid email address and not exceed 50 characters.
+        password (PasswordField): Password field, must be between 6 and 30 characters long.
+    """
     class Meta:
         csrf = False
 
