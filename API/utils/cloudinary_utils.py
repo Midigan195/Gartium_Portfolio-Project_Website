@@ -6,9 +6,9 @@ This module provides functions for interacting with the Cloudinary service.
 
 import cloudinary
 cloudinary.config(
-    cloud_name="dkqmklusp",
-    api_key="166526362641378",
-    api_secret="6bCzPajL5Eke-dhJLhq9Gs7iAY8",
+    cloud_name="place_holder_cloud_name",
+    api_key="place_holder_api_key",
+    api_secret="place_holder_secret",
     api_proxy = "http://proxy.server:3128"
 )
 from cloudinary.uploader import upload
