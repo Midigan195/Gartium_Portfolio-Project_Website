@@ -1,0 +1,38 @@
+body {
+    background-color: rgb(228, 228, 230);;
+}
+
+#about_header {
+    position: fixed;
+    top: 10px; /* Distance from the top */
+    left: 20px; /* Distance from the left */
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+#logo {
+    width: 140px; /* Adjust the width as needed */
+    height: auto;
+    margin-left: 4px;
+    flex-shrink: 0;
+    transition: width 0.3s ease;
+}
+
+#about-info {
+    max-width: 75%;
+    width: 600px;
+    margin: 0px auto;
+    align-items: center;
+    font-family: Arial;
+    transition: max-width 0.3s ease, margin-left 0.3s ease;
+}
+
+#about-info h1 {
+    font-size: 50px;
+}
+#about-info h3 {
+    font-size: 18px;
+}

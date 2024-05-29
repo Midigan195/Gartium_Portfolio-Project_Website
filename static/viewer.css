@@ -1,0 +1,144 @@
+#viewer_body {
+    background-color: rgb(236, 235, 235);
+    font-family: Arial;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+#logo {
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    margin: 10px auto;
+    margin-left: 30px;
+}
+
+.icon-button {
+    background-color: white;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.icon-button .fa {
+    color: gray;
+}
+.icon-button:hover {
+    background-color: #f0f0f0;
+}
+#Image-Container {
+    display: block;
+    /*position: relative;*/
+    max-width: 65%;
+    width: 650px;
+    /*padding: 0px;*/
+    margin: 0 auto;
+    margin-top: 0px;
+    margin-bottom: 15px;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
+}
+
+#Image-Container img {
+    display: block;
+    /*max-width: 650px;*/
+    width: 100%;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.post_info {
+    max-width: 85%;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+}
+
+#posthead {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.post_info h1 {
+    color: rgb(0, 0, 0);
+}
+
+#title {
+    font-size: 35px;
+}
+#author {
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+}
+#heart-icon, #visibility-icon {
+    cursor: pointer;
+    /*margin-top: 20px;*/
+    font-size: 35px;
+    color: rgb(78, 78, 78);
+    vertical-align: middle;
+}
+
+#like-count, #view-count {
+    font-size: 14px; /* Adjust the size as needed */
+    vertical-align: middle;
+    margin-left: 8px; /* Space between heart icon and like count */
+}
+
+#postInteract {
+    display: flex;
+    align-items: center;
+}
+
+#postInteract .interaction {
+    display: flex;
+    align-items: center;
+    margin-right: 16px; /* Space between different interactions */
+}
+
+#heart-icon.red {
+    color: rgb(240, 171, 171);
+}
+
+
+#description_heading {
+    color: rgb(0, 0, 0);
+    margin-top: 50px;
+    font-weight: bold;
+    font-family: Arial;
+    font-size: 18px;
+}
+
+#description {
+    color: rgb(0, 0, 0);
+    margin-top: 10px;
+    font-weight: bold;
+    font-family: Arial;
+    font-size: 14px;
+}
+
+#tags {
+    color: rgb(0, 0, 0);
+    margin-top: 20px;
+    font-weight: bold;
+    font-family: Arial;
+    font-size: 14px;
+}
+
+@media (max-width: 576px) {
+    #title {
+        font-size: 28px;
+    }
+    #heart-icon, #visibility-icon {
+        font-size: 25px;
+    }
+}

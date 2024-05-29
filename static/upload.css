@@ -1,0 +1,209 @@
+body {
+    background-color: rgb(228, 228, 230);
+    margin: 0px;
+}
+
+form {
+    width: 270px;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    color: #666666;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #1E90FF;
+}
+
+.session_header {
+    position: fixed; /*Fixed position to keep it in the corner */
+    top: 10px; /* Distance from the top */
+    left: 20px; /* Distance from the left */
+    z-index: 999; /* Ensure the logo stays on top */
+}
+
+.icon-button {
+    background-color: white;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.icon-button .fa {
+    color: gray;
+}
+.icon-button:hover {
+    background-color: #f0f0f0;
+}
+
+#upload_header {
+    position: fixed;
+    top: 10px; /* Distance from the top */
+    left: 20px; /* Distance from the left */
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+#submitblock {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 20px;
+}
+
+#upload_block {
+    max-width: 65%;
+    width: 450px;
+    margin: 0px auto;
+    margin-top: 82px;
+    align-items: center;
+    transition: max-width 0.3s ease, margin-left 0.3s ease;
+}
+
+
+#uploadButton {
+    display: block;
+    /*margin: 50px auto;
+    margin-right: 330px;*/
+    width: 120px;
+    height: 50px;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 8px;
+    border: none;
+    border-radius: 30px;
+    background-color: rgb(165, 161, 161);
+    font-size: 18px;
+    font-family: Arial;
+    color: black;
+}
+
+#CancelButton {
+    display: block;
+    /*margin: 50px auto;
+    margin-right: 330px;*/
+    width: 120px;
+    height: 50px;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 8px;
+    border: none;
+    border-radius: 30px;
+    background-color: white;
+    font-size: 18px;
+    font-family: Arial;
+    color: black;
+}
+
+
+#upload_heading {
+    width: 80%;
+    padding: 5px;
+    margin-bottom: 10px;
+    font-family: Arial;
+    font-size: 40px;
+}
+
+#upload-area {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#imagePreview {
+    background-color: grey;
+    margin: 0 auto;
+}
+
+#fileLabel {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    color: #57595c;
+}
+
+#fileInput {
+    font-family: Arial;
+}
+
+#uploadForm {
+    width: 100%;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+  }
+
+  #description {
+    width: 100%;
+    margin-top: 5px;
+    border-radius: 10px;
+    height: 150px;
+    font-family: Arial;
+  }
+
+  #uploadForm input{
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 8px;
+    padding-right: 0;
+    border: none;
+    /*border: black solid;*/
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+  }
+  /*#fileList {
+    margin-top: 20px;
+  }*/
+
+  #fileSelect {
+    cursor: pointer;
+    color: rgb(42, 5, 255);
+  }
+  @media (max-width: 768px) {
+    #uploadButton {
+        width: 90px;
+        margin-left: 8px;
+        margin-right: 8px;
+        font-size: 15px;
+    }
+    #CancelButton {
+        width: 90px;
+        margin-left: 8px;
+        margin-right: 8px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    #uploadButton {
+        width: 70px;
+        margin-left: 5px;
+        margin-right: 8px;
+        font-size: 14px;
+    }
+    #CancelButton {
+        width: 70px;
+        margin-left: 5px;
+        margin-right: 8px;
+        font-size: 14px;
+    }
+}

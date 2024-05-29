@@ -1,0 +1,318 @@
+body {
+    background-color: black;
+}
+.bodydiv {
+    font-family: Arial, sans-serif;
+    margin-top: 15px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#loader {
+    color: white;
+    font-family: Arial, sans-serif;
+}
+.home_header {
+    /*background-color: #f0f0f0;
+    position: fixed;
+    top: 0px; /* Distance from the top
+    left: 20px;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    justify-content: space-between; */
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    margin-right: 10px;
+    background-color:  #f0f0f0;
+    box-shadow: 0 2px 4px rgba(173, 173, 173, 0.1);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    /*justify-content: space-between;*/
+}
+
+#home_logo {
+    width: 140px; /* Adjust the width as needed */
+    height: auto;
+    margin-left: 4px;
+    flex-shrink: 0;
+    transition: width 0.3s ease;
+}
+
+.searchContainer {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px auto;
+    margin-left: 200px;
+}
+
+#searchBox {
+    flex-grow: 1;
+    max-width: 550px;
+    width: 550px;
+    padding: 8px 12px;
+    font-size: 16px;
+    background-color: #e3e4e6;
+    border: 1px solid #ccc;
+    font-family: Arial, sans-serif;
+    border-radius: 15px 0px 0px 15px;
+    transition: max-width 0.3s ease, margin-left 0.3s ease;;
+}
+
+.searchButton {
+    flex-grow: 1;
+    max-width: 600px;
+    padding: 8px 12px;
+    font-size: 16px;
+    background-color: #000000;
+    border: 1px solid black;
+    color: white;
+    font-family: Arial, sans-serif;
+    /*font-weight: bold;*/
+    border-radius: 0px 15px 15px 0px;
+    transition: max-width 0.3s ease, margin-left 0.3s ease;;
+}
+
+@media screen and (max-width: 1200px) {
+    #home_logo {
+        width: 130px;
+    }
+    .searchContainer {
+        max-width: 500px;
+        margin-left: 180px;
+    }
+    .grid-container {
+        width: 90%;
+    }
+
+    .grid-item img {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    #home_logo {
+        width: 125px;
+    }
+    .searchContainer {
+        max-width: 400px;
+        margin-left: 120px;
+    }
+    .grid-container {
+        width: 85%;
+    }
+    .grid-item img {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #home_logo {
+        width: 120px;
+    }
+    .searchContainer {
+        max-width: 300px;
+        margin-left: 50px;
+    }
+    .grid-container {
+        width: 80%;
+    }
+    .grid-item img {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    #home_logo {
+        width: 110px;
+    }
+    .searchContainer {
+        max-width: 150px;
+        margin-left: 0px;
+    }
+    #searchBox {
+        max-width: 60%;
+        border-radius: 10px 0px 0px 10px;
+    }
+    .searchButton {
+        padding: 4px 4px;
+        border-radius: 0px 10px 10px 0px;
+    }
+    #homeuploadButton {
+        right: 10px;
+    }
+    .grid-container {
+        width: 75%;
+    }
+    .grid-item img {
+        width: 70%;
+    }
+}
+
+
+#homeuploadButton {
+    position: absolute;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: #a6a7a8;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#homeuploadButton i {
+    font-size: 20px;
+}
+
+.grid-container {
+    /*display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 15px;
+    width: 95%;
+    max-width: 1200px;
+    margin: 160px auto;
+    margin-top: 95px;
+    transition: width 0.3s ease;*/
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 0px auto;
+    margin-top: 95px;
+    grid-auto-rows: 200px;
+    gap: 20px;
+    grid-auto-flow: dense;
+    width: 100%;
+    max-width: 1200px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.grid-item {
+    /*break-inside: avoid;
+    overflow: hidden;*/
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.grid-item img {
+    width: 100%;
+    /*height: auto;
+    display: block;
+    border-radius: 12px;
+    transition: width 0.3s ease;*/
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.grid-container div:nth-child(4n + 1) {
+    grid-column-end: span 2;
+    grid-row-end: span 2;
+}
+
+.grid-container div:nth-child(2) {
+    grid-column: 3;
+    grid-row: 2 / 4;
+}
+
+.grid-container div:nth-child(5) {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.material-icons {
+    color: silver;
+    align-self: flex-end;
+}
+
+.details-container {
+    /*border: 1px solid red;*/
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+}
+
+.grid-item:hover .overlay {
+    opacity: 1;
+}
+
+.title {
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.author {
+    color: white;
+    font-weight: normal;
+    font-size: smaller;
+}
+
+.views-container {
+    /*border: 1px solid red;*/
+    display: flex;
+    align-items: center;
+    margin-right: 15px;  /* Center content vertically within the container */
+}
+
+.views-count {
+    margin-right: 5px;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-container div:nth-child(4n + 1) {
+        grid-column-end: span 1; /* Adjusting grid-column-end for smaller screens */
+    }
+
+    .grid-container div:nth-child(2) {
+        grid-column: 1 / 3; /* Adjusting grid-column for smaller screens */
+        grid-row: auto; /* Resetting grid-row for smaller screens */
+    }
+
+    .grid-container div:nth-child(5) {
+        grid-column: 1 / 3; /* Adjusting grid-column for smaller screens */
+        grid-row: auto; /* Resetting grid-row for smaller screens */
+    }
+
+    .overlay {
+        min-height: 50px;
+        height: 50px;
+        padding-top: 10px;
+        padding-bottom: 5px;
+    }
+}

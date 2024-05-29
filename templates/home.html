@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="icon" href="static/gartium-high-resolution-logo-black-transparent.png" type="image/x-icon">
+    <link rel="stylesheet" href="static/feed.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        #loader {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="home_header">
+        <img src="static/gartium-high-resolution-logo-black-transparent.png" id="home_logo">
+        <div class="searchContainer">
+            <input type="text" id="searchBox" placeholder="Whatca lookin for...?">
+            <button class="searchButton" onclick="searchImages()">Search</button>
+        </div>
+        <button type="submit" id="homeuploadButton" onclick="redirectToUpload()"><i class="fas fa-plus"></i></button>
+    </header>
+    <div id="bodydiv">
+        <div class="grid-container">
+            <!--Images will be loaded here-->
+        </div>
+    </div>
+    <div id="loader">Loading...</div>
+
+    <script>
+        let page = 1;
+        let isLoading = false;
+        let noMoreImages = false;
+        let searchItem = '';
+
+        let fetch_url = `https://mirigan.pythonanywhere.com/feed?page=`;
+
+        function loadImages() {
+            if (isLoading || noMoreImages) return;
+
+            isLoading = true;
+            document.getElementById('loader').style.display = 'block';
+            query = `${fetch_url}${page}&search=${encodeURIComponent(searchItem)}`
+            fetch(query)
+                .then(response => {
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(page);
+                    if (!data.length) {
+                        noMoreImages = true;
+                        isLoading = false;
+                        document.getElementById('loader').style.display = 'none';
+                        window.removeEventListener('scroll', checkScroll);
+                        return;
+                    }
+                    const imageContainer = document.querySelector('.grid-container');
+                    if (page === 1) {
+                        imageContainer.innerHTML = ''; // Clear existing images on new search
+                    }
+                    data.forEach(image => {
+                        const gridItem = document.createElement('div');
+                        gridItem.classList.add('grid-item');
+                        const imgElement = document.createElement('img');
+                        imgElement.src = image.image_url;
+                        imgElement.alt = image.title;
+                        gridItem.appendChild(imgElement);
+                        imageContainer.appendChild(gridItem);
+
+                        //redirect the user acccordingly
+                        gridItem.addEventListener('click', () => {
+                            window.location.href = `{{ url_for('view_post', post_id='') }}${image.post_id}`;
+                        });
+
+                        const overlay = document.createElement('div');
+                        overlay.classList.add('overlay');
+                        gridItem.appendChild(overlay);
+
+                        //Create details container
+                        const detailsContainer = document.createElement('div');
+                        detailsContainer.classList.add('details-container');
+                        overlay.appendChild(detailsContainer);
+
+                        const titleLabel = document.createElement('label');
+                        titleLabel.classList.add('title')
+                        titleLabel.textContent = image.title;
+                        detailsContainer.appendChild(titleLabel)
+
+                        const userLabel = document.createElement('label');
+                        userLabel.classList.add('author')
+                        userLabel.textContent = 'by: ' + image.username;
+                        detailsContainer.appendChild(userLabel)
+
+                        //Create views-container
+                        const viewsContainer = document.createElement('div');
+                        viewsContainer.classList.add('views-container');
+                        overlay.appendChild(viewsContainer);
+
+                        const viewsCount = document.createElement('span');
+                        viewsCount.classList.add('views-count');
+                        viewsCount.textContent = image.views;  // Assuming image.views contains the number of views
+                        viewsContainer.appendChild(viewsCount);
+
+                        const visibilityIcon = document.createElement('i');
+                        visibilityIcon.classList.add('material-icons');
+                        visibilityIcon.classList.add('visibility-icon');
+                        visibilityIcon.textContent = 'visibility'; // Text content set to 'visibility'
+                        viewsContainer.appendChild(visibilityIcon);
+                    });
+
+                    page++;
+                    console.log('next page');
+                    isLoading = false;
+                    document.getElementById('loader').style.display = 'none';
+                })
+                .catch(error => {
+                    console.error('Error loading images:', error);
+                    isLoading = false;
+                    document.getElementById('loader').style.display = 'none';
+                });
+        }
+
+        function checkScroll() {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.offsetHeight;
+
+            if (scrollTop + windowHeight >= documentHeight - 100) {
+                loadImages();
+            }
+        }
+
+        function searchImages() {
+            document.querySelector('.grid-container').innerHTML = ''
+            searchItem = ''
+            searchItem = document.getElementById('searchBox').value;
+            page = 1;
+            noMoreImages = false;
+            loadImages();
+            window.addEventListener('scroll', checkScroll);
+        }
+
+        function redirectToUpload() {
+            window.location.href = '/upload';  // Replace with your desired route
+        }
+
+        window.addEventListener('scroll', checkScroll);
+
+        loadImages();
+    </script>
+</body>
+</html>

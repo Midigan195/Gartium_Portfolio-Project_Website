@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="static/gartium-high-resolution-logo-black-transparent.png" type="image/x-icon">
+    <link rel="stylesheet" href="static/tempstyles.css">
+    <style>
+        .reg_block {
+            background-color: white;
+            padding: 0px;
+            margin-top: 140px;
+            width: 500px;
+            border-radius: 10px;
+        }
+        h1 {
+            margin-bottom: 0px;
+            color: silver;
+        }
+        @media (max-width: 600px) {
+            .session_header {
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .reg_block {
+                border-radius: 0px;
+                width: 100%;
+            }
+        }
+        p {
+            font-family: Arial;
+            color: gray;
+            margin-top: 0px;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+        .larger-404 {
+            font-size: 2em; /* Adjust the size as needed */
+            vertical-align: middle;
+            color: gray;
+        }
+    </style>
+    <title>Page Not Found</title>
+</head>
+<body>
+    <header class="session_header">
+        <img src="static/gartium-high-resolution-logo-black-transparent.png" id="logo">
+    </header>
+    <div class="reg_block">
+        <h1><span class="larger-404">404</span> - Page Not Found</h1>
+        <p>Oops!, wrong page bucko 😉</p>
+    </div>
+</html>
